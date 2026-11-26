@@ -1,7 +1,7 @@
 # Tiny Tapeout project information
 project:
   title:        "515_VGA_Tiny_Logo"      # Project title
-  author:       "FramGC"      # Your name
+  author:       "Francisco Garcia C"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "515_VGA_Tiny_Logo"      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
