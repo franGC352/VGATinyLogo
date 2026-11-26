@@ -28,7 +28,7 @@ module tb ();
 `endif
 
   // Replace tt_um_example with your module name:
-  Proyecto01 FranciscoGC (
+  515_VGA_Tiny_Logo FranciscoGC (
 
       // Include power ports for the Gate Level test:
 `ifdef GL_TEST
