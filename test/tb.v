@@ -28,7 +28,7 @@ module tb ();
 `endif
 
   // Replace tt_um_example with your module name:
-  VGATinyLogo FranciscoGC (
+  VGATinyLogo Francisco Garcia C (
 
       // Include power ports for the Gate Level test:
 `ifdef GL_TEST
