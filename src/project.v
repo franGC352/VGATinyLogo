@@ -1,4 +1,4 @@
-/* VGA_Tiny_Logo
+/* 
  * Copyright (c) 2025 Renaldas Zioma
  * SPDX-License-Identifier: Apache-2.0
  */
