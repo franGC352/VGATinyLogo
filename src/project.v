@@ -1,4 +1,4 @@
-/*
+/* 515 VGA Tiny Logo
  * Copyright (c) 2025 Renaldas Zioma
  * SPDX-License-Identifier: Apache-2.0
  */
