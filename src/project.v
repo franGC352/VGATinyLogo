@@ -238,5 +238,61 @@ module approx_signed_square #(
             // assign p_approx = term_hh_u + term_x_u;
         end
     endgenerate
+// Generador de sincronizacion VGA 640x480
 
+module hvsync_generator (
+    input  wire clk,
+    input  wire reset,
+    output wire hsync,
+    output wire vsync,
+    output wire display_on,
+    output reg [9:0] hpos,
+    output reg [9:0] vpos
+);
+
+    // Parametros horizontales
+    localparam H_DISPLAY = 10'd640;
+    localparam H_SYNC_START = 10'd656;
+    localparam H_SYNC_END = 10'd752;
+    localparam H_TOTAL = 10'd800;
+
+    // Parametros verticales
+    localparam V_DISPLAY = 10'd480;
+    localparam V_SYNC_START = 10'd490;
+    localparam V_SYNC_END = 10'd492;
+    localparam V_TOTAL = 10'd525;
+
+    // Contadores de posicion
+    always @(posedge clk) begin
+        if (reset) begin
+            hpos <= 10'd0;
+            vpos <= 10'd0;
+        end else begin
+            if (hpos == H_TOTAL - 10'd1) begin
+                hpos <= 10'd0;
+
+                if (vpos == V_TOTAL - 10'd1)
+                    vpos <= 10'd0;
+                else
+                    vpos <= vpos + 10'd1;
+
+            end else begin
+                hpos <= hpos + 10'd1;
+            end
+        end
+    end
+
+    // Sincronizacion horizontal
+    assign hsync = ~((hpos >= H_SYNC_START) &&
+                     (hpos < H_SYNC_END));
+
+    // Sincronizacion vertical
+    assign vsync = ~((vpos >= V_SYNC_START) &&
+                     (vpos < V_SYNC_END));
+
+    // Region visible de la pantalla
+    assign display_on = (hpos < H_DISPLAY) &&
+                        (vpos < V_DISPLAY);
+
+endmodule
 endmodule
